@@ -15,7 +15,7 @@ LIST(APPEND source_files resources/PkmGCSaveEditor.rc)
 include_directories(${LIBPKMGC_INCLUDE_DIRS} src/)
 
 add_executable(PkmGCSaveEditor WIN32 ${source_files})
-target_link_libraries(PkmGCSaveEditor LibPkmGC Qt5::Widgets Qt5::Network)
+target_link_libraries(PkmGCSaveEditor PkmGC Qt5::Widgets Qt5::Network)
 
 set(PKMGCSAVEEDITOR_SUPPORTED_LANGUAGES en fr de CACHE INTERNAL "PkmGCSaveEditor's supported languages" FORCE)
 

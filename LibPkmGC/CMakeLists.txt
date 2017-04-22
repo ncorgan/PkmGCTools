@@ -26,21 +26,20 @@ unset(LIBPKMGC_DEFINITONS CACHE)
 if(LIBPKMGC_DYN_LIB)
 	set(LIBPKMGC_DEFINITIONS -DLIBPKMGC_DYN_LIB CACHE INTERNAL "LibPkmGC's definitions" FORCE)
 	add_definitions(-DLIBPKMGC_DYN_LIB)
-	add_library(LibPkmGC SHARED ${all_files})
-	set(LIBPKMGC_RUNTIME $<TARGET_FILE:LibPkmGC> CACHE INTERNAL "Runtime dependencies for projects linking against this library" FORCE)
-	install(FILES $<TARGET_FILE:LibPkmGC> $<TARGET_LINKER_FILE:LibPkmGC> DESTINATION lib/shared COMPONENT Libraries)
+	add_library(PkmGC SHARED ${all_files})
+	set(LIBPKMGC_RUNTIME $<TARGET_FILE:PkmGC> CACHE INTERNAL "Runtime dependencies for projects linking against this library" FORCE)
+	install(TARGETS PkmGC
+		LIBRARY DESTINATION lib COMPONENT Libraries # .so
+		ARCHIVE DESTINATION lib COMPONENT Libraries # .lib, .a
+		RUNTIME DESTINATION bin COMPONENT Libraries # .dll
+	)
 else()
-	set(LIBPKMGC_DEFINITIONS -DLIBPKMGC_STATIC_LIB CACHE INTERNAL "LibPkmGC's definitions" FORCE)
+	set(LIBPKMGC_DEFINITIONS -DLIBPKMGC_STATIC_LIB CACHE INTERNAL "PkmGC's definitions" FORCE)
 	add_definitions(-DLIBPKMGC_STATIC_LIB)
-	add_library(LibPkmGC STATIC ${all_files})
-	install(FILES $<TARGET_FILE:LibPkmGC> DESTINATION lib/static COMPONENT Libraries)
+	add_library(PkmGC STATIC ${all_files})
+	install(TARGETS PkmGC
+		ARCHIVE DESTINATION lib COMPONENT Libraries # .lib, .a
+	)
 endif()
 
-install(FILES "README.md" "LICENSE" DESTINATION lib COMPONENT Libraries)
-
-
 install(DIRECTORY "include/LibPkmGC" DESTINATION "include" COMPONENT Headers)
-
-install(FILES "README.md" "LICENSE" DESTINATION "include" COMPONENT Headers)
-	
-set_target_properties(LibPkmGC PROPERTIES PREFIX "" IMPORT_PREFIX "") 
