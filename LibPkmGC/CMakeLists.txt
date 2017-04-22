@@ -41,5 +41,3 @@ else()
 		ARCHIVE DESTINATION lib COMPONENT Libraries # .lib, .a
 	)
 endif()
-
-install(DIRECTORY "include/LibPkmGC" DESTINATION "include" COMPONENT Headers)
