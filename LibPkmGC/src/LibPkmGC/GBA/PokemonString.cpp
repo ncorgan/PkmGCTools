@@ -118,7 +118,7 @@ void PokemonString::fromUTF8(const char * str) {
 	size_t offset = 0;
 	while (offset < strSz - 1) {
 		u32 c;
-		s = utf8_mbtowc(NULL, &c, (const unsigned char*)str + offset, strSz - 1);
+		s = (int)utf8_mbtowc(NULL, &c, (const unsigned char*)str + offset, strSz - 1);
 		if (s < 0) break;
 		offset += s;
 		if (c == 0) break;

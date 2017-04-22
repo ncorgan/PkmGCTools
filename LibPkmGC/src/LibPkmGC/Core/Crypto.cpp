@@ -299,7 +299,7 @@ namespace Crypto {
 void sha1(const u8* start, const u8* end, u8 digest[20]) {
 	SHA1_CTX ctx;
 	SHA1Init(&ctx);
-	SHA1Update(&ctx, start, (size_t)(end-start));
+	SHA1Update(&ctx, start, (u32)(end-start));
 	SHA1Final(digest, &ctx);
 }
 
