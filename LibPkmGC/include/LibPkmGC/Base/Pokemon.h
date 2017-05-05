@@ -94,7 +94,7 @@ public:
 
 
 	u8 friendship;
-	u8 locationCaught; // u16 on Colo/XD
+	u16 locationCaught; // u8 on GBA
 	ItemIndex ballCaughtWith;
 	u8  levelMet;
 	Gender  OTGender;

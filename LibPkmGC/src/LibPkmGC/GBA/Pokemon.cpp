@@ -219,7 +219,7 @@ void Pokemon::loadFields(void) {
 	LD_FIELD(u8, contestLuster, 67);
 
 	LD_FIELD(u8, pokerusStatus, 68);
-	LD_FIELD(u8, locationCaught, 69);
+	LD_FIELD_CONV(u16, locationCaught, 69, u8);
 
 	u16 origins;
 	LD_FIELD(u16, origins, 70);
@@ -352,7 +352,7 @@ void Pokemon::save(void) {
 	SV_FIELD(u8, contestLuster, 67);
 
 	SV_FIELD(u8, pokerusStatus, 68);
-	SV_FIELD(u8, locationCaught, 69);
+	SV_FIELD_CONV(u8, locationCaught, 69, u16);
 
 	u16 origins = 0;
 	if (levelMet > 100) levelMet = 100;

@@ -50,7 +50,7 @@ void Pokemon::loadFields(void) {
 	LD_FIELD(u32, PID, 0x04);
 	version.load(data + 0x08);
 	
-	LD_FIELD_CONV(u16, locationCaught, 0x0c, u8);
+	LD_FIELD(u16, locationCaught, 0x0c);
 
 	LD_FIELD_MAX(u8, levelMet, 0x0e, 100);
 	LD_FIELD_E_MAX(u8, ballCaughtWith, 0x0f, ItemIndex, PremierBall);
@@ -125,7 +125,7 @@ void Pokemon::save(void) {
 	SV_FIELD_E(u16, species, 0x00, PokemonSpeciesIndex);
 	SV_FIELD(u32, PID, 0x04);
 	version.save(data + 0x08);
-	SV_FIELD_CONV(u16, locationCaught, 0x0c, u8);
+	SV_FIELD(u16, locationCaught, 0x0c);
 	SV_FIELD_MAX(u8, levelMet, 0x0e, 100);
 	if (ballCaughtWith == NoItem || ballCaughtWith > PremierBall) ballCaughtWith = PokeBall;
 	SV_FIELD_E_MAX(u8, ballCaughtWith, 0x0f, ItemIndex, PremierBall);

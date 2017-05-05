@@ -66,7 +66,7 @@ void Pokemon::loadFields(void) {
 	
 	LD_FIELD_CONV(u16, friendship, 0x06, u8);
 
-	LD_FIELD_CONV(u16, locationCaught, 0x08, u8);
+	LD_FIELD(u16, locationCaught, 0x08);
 	
 	LD_FIELD(u16, unk1, 0xa);
 	LD_FIELD(u16, unk2, 0xc);
@@ -140,7 +140,7 @@ void Pokemon::save(void) {
 	SV_FIELD_E(u8, heldItem, 0x03, ItemIndex);
 	SV_FIELD(u16, partyData.currentHP, 0x04);
 	SV_FIELD_CONV(u16, friendship, 0x06, u8);
-	SV_FIELD_CONV(u16, locationCaught, 0x08, u8);
+	SV_FIELD(u16, locationCaught, 0x08);
 	
 	SV_FIELD(u16, unk1, 0xa);
 	SV_FIELD(u16, unk2, 0xc);
