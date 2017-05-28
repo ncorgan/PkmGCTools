@@ -61,7 +61,7 @@ Pokemon& Pokemon::operator=(Pokemon const& other) {
 void Pokemon::loadFields(void) {
 	u8 marksTmp = 0;
 	LD_FIELD_E(u16, species, 0x00, PokemonSpeciesIndex);
-	LD_FIELD_E(u8, heldItem, 0x03, ItemIndex);
+	LD_FIELD_E(u16, heldItem, 0x02, ItemIndex);
 	LD_FIELD(u16, partyData.currentHP, 0x04);
 	
 	LD_FIELD_CONV(u16, friendship, 0x06, u8);
@@ -137,7 +137,7 @@ void Pokemon::save(void) {
 
 
 	SV_FIELD_E(u16, species, 0x00, PokemonSpeciesIndex);
-	SV_FIELD_E(u8, heldItem, 0x03, ItemIndex);
+	SV_FIELD_E(u16, heldItem, 0x02, ItemIndex);
 	SV_FIELD(u16, partyData.currentHP, 0x04);
 	SV_FIELD_CONV(u16, friendship, 0x06, u8);
 	SV_FIELD(u16, locationCaught, 0x08);

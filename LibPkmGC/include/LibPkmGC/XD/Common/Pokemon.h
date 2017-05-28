@@ -27,7 +27,7 @@ namespace XD {
 /*
 XD::Pokemon
 	0x00: u16 species (cf PokemonInfo.h)
-	0x03: u8 itemHeld (ItemInfo.h)
+	0x02: u16 itemHeld (ItemInfo.h)
 	0x04: u16 currentHP
 	0x06: u16 friendship
 	0x08: u16 locationCaught
