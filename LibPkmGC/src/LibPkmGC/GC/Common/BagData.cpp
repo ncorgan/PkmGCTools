@@ -37,6 +37,7 @@ void BagData::swap(BagData& other) {
 	Base::DataStruct::swap(other);
 	SW(regularItems);
 	SW_ARRAY(keyItems, 43);
+	SW_ARRAY(pokeballs, 16);
 	SW_ARRAY(TMs, 64);
 	SW_ARRAY(berries, 46);
 	SW_ARRAY(colognes, 3);
@@ -46,6 +47,7 @@ BagData::BagData(BagData const & other) : Base::DataStruct(other), nbRegularItem
 	regularItems = new Item[nbRegularItems];
 	CP_ARRAY(regularItems, nbRegularItems);
 	CP_ARRAY(keyItems, 43);
+	CP_ARRAY(pokeballs, 16);
 	CP_ARRAY(TMs, 64);
 	CP_ARRAY(berries, 46);
 	CP_ARRAY(colognes, 3);
@@ -59,6 +61,7 @@ BagData& BagData::operator=(BagData const & other) {
 		regularItems = new Item[nbRegularItems];
 		CP_ARRAY(regularItems, nbRegularItems);
 		CP_ARRAY(keyItems, 43);
+		CP_ARRAY(pokeballs, 16);
 		CP_ARRAY(TMs, 64);
 		CP_ARRAY(berries, 46);
 		CP_ARRAY(colognes, 3);
