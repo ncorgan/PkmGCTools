@@ -4394,7 +4394,7 @@ const PokemonSpeciesData speciesData[0x19f]= {
 		Erratic,
 		M1F1,
 		70,
-		{SwiftSwim, NoAbility},
+		{SwiftSwim, Oblivious},
 		{20, 15, 20, 10, 55, 80},
 		{0, 0, 0, 0, 0, 1}
 	},
